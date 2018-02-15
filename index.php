@@ -24,6 +24,7 @@ try
       case 'vue_snows' :
           snows();
         break;
+          login();
       default :
         throw new Exception("Action non valide");
     }

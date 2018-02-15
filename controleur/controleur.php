@@ -30,3 +30,8 @@ function snows()
   $resultats=getSnows(); // pour récupérer les données des snows dans la BD
   require 'vue/vue_snows.php';
 }
+
+function login()
+{
+
+}
