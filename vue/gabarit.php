@@ -75,11 +75,19 @@
                 <?php else : ?>
                 <li><a href="index.php">Home</a></li>
                 <?php endif; ?>
+
+                <?php if(@$_GET['action']=="vue_login") :?>
+                <li class="active"><a href="login.php">Login</a></li>
+                <?php else : ?>
+                <li><a href="Login.php">Login</a></li>
+                <?php endif; ?>
+
                 <?php if(@$_GET['action']=="vue_snows") :?>
                 <li class="active"><a href="index.php?action=vue_snows">Nos snows</a></li>
                 <?php else : ?>
                 <li><a href="index.php?action=vue_snows">Nos snows</a></li>
                 <?php endif; ?>
+
                 </li>
                 <li><a href="contact.php">Contact</a></li>
               </ul>

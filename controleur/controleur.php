@@ -33,5 +33,5 @@ function snows()
 
 function login()
 {
-
+  require 'vue/vue_login.php';
 }

@@ -13,7 +13,7 @@ require "controleur/controleur.php";
 
 try
 {
-  if (isset($_GET['action']))
+  if (isset($_GET['action']))   //va requerir le contrôleur en fonction de l'action demandée
   {
     $action = $_GET['action'];
     switch ($action)
@@ -24,7 +24,9 @@ try
       case 'vue_snows' :
           snows();
         break;
+      case 'vue_login' :
           login();
+        break;
       default :
         throw new Exception("Action non valide");
     }
