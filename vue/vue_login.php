@@ -52,20 +52,20 @@ if (isset($_SESSION)){
               <h5 class="text-error">Erreur de mot de passe</h5>
             <?php endif ?>
 		        <p>
-            <form class="form" method="POST" action="#">
+            <form class="form" method="POST" action="..\controleur\controleur.php">
               <table class="table">
                 <tr>
-                  <td>Login : </td><td><input type="text" placeholder="Entrez votre login" name="fLogin" value="<?= @$_GET['fLogin']; // pour éviter à l'utilisateur de retaper son login ?>"><td>
+                  <td>Login : </td><td><input type="text" placeholder="Entrez votre login" name="fLogin" value="<?= @$_POST['fLogin']; // pour éviter à l'utilisateur de retaper son login ?>"><td>
                 </tr>
                 <tr>
                   <td>Password : </td>
                   <td>
                       <?php if (isset($_GET['erreur'])) : ?>
                       <div class="control-group error"><div class="controls">
-                        <input type="password" placeholder="Entrez le bon password" class="inputError" name="fPass" value="<?= @$_GET['fPass']; // pour éviter à l'utilisateur de retaper son mdp ?>">
+                        <input type="password" placeholder="Entrez le bon password" class="inputError" name="fPass" value="<?= @$_POST['fPass']; // pour éviter à l'utilisateur de retaper son mdp ?>">
                       <?php else : ?>
                       <div class="control-group"><div class="controls">
-                        <input type="password" placeholder="Entrez votre password" name="fPass" value="<?= @$_GET['fPass']; // pour éviter à l'utilisateur de retaper son mdp ?>">
+                        <input type="password" placeholder="Entrez votre password" name="fPass" value="<?= @$_POST['fPass']; // pour éviter à l'utilisateur de retaper son mdp ?>">
                       <?php endif ?>
 
                     </div></div>

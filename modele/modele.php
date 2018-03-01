@@ -45,12 +45,16 @@ function getSnows()
 //Fonction de gestion du login
 
 function getLogin(){
+
+    $chklogin = $_POST['fLogin'];
+
     // Connexion à la BD et au serveur
     $connexion = getBD();
 
     // Cr�ation de la string pour la requ�te
-    $requete = "SELECT login, passwd FROM tblclients ORDER BY login;";
+    $requete = "SELECT login, passwd FROM tblclients ORDER BY login WHERE login ="..";";
     // Exécution de la requête
     $resultats = $connexion->query($requete);
     return $resultats;
+
 }
