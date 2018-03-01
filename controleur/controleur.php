@@ -33,5 +33,6 @@ function snows()
 
 function login()
 {
+  $resultats=getLogin(); // pour récupérer les données des clients
   require 'vue/vue_login.php';
 }

@@ -8,7 +8,6 @@
  * Date : 14.02.2018
  */
 
-session_start();
 require "controleur/controleur.php";
 
 try

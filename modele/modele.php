@@ -36,8 +36,21 @@ function getSnows()
   $connexion = getBD();
 
   // Cr�ation de la string pour la requ�te
-  $requete = "SELECT * FROM tblsurfs ORDER BY idsurf;";
+  $requete = "SELECT * FROM tblsurfs ORDER BY disponibilite;";
   // Exécution de la requête
   $resultats = $connexion->query($requete);
   return $resultats;
+}
+
+//Fonction de gestion du login
+
+function getLogin(){
+    // Connexion à la BD et au serveur
+    $connexion = getBD();
+
+    // Cr�ation de la string pour la requ�te
+    $requete = "SELECT login, passwd FROM tblclients ORDER BY login;";
+    // Exécution de la requête
+    $resultats = $connexion->query($requete);
+    return $resultats;
 }

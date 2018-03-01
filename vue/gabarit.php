@@ -5,6 +5,8 @@
  * Date: 08.05.2017
  * Time: 09:16
  */
+
+  session_start();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -77,9 +79,9 @@
                 <?php endif; ?>
 
                 <?php if(@$_GET['action']=="vue_login") :?>
-                <li class="active"><a href="login.php">Login</a></li>
+                <li class="active"><a href="index.php?action=vue_login">Login</a></li>
                 <?php else : ?>
-                <li><a href="Login.php">Login</a></li>
+                <li><a href="index.php?action=vue_login">Login</a></li>
                 <?php endif; ?>
 
                 <?php if(@$_GET['action']=="vue_snows") :?>
