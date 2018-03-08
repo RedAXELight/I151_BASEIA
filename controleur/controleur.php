@@ -25,14 +25,22 @@ function erreur($e)
 
 // ----------------- Fonctions en lien avec les snows ---------------------
 
+
+
+//pour afficher la vue séléctionnée par la variable "action", plus généralement utilisée dans le menu de séléction des pages
 function snows()
 {
   $resultats=getSnows(); // pour récupérer les données des snows dans la BD
   require 'vue/vue_snows.php';
 }
 
-function login()
+function loginRes() //pour afficher la vue séléctionnée dans le menu
 {
-  $resultats=getLogin(); // pour récupérer les données des clients
-  require 'vue/vue_login.php';
+  require 'vue/vue_loginRes.php';
+}
+
+function loginForm() //Fonction pour le login du formulaire
+{
+    require 'vue/vue_login.php';
+
 }

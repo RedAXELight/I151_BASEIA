@@ -5,6 +5,8 @@
  * Date: 28.02.2018
  * Time: 15:51
  */
+
+ob_start();
 $titre = "login";
 if (isset($_SESSION)){
     session_destroy();
@@ -12,37 +14,6 @@ if (isset($_SESSION)){
 ?>
 
 <!-- ________________________ Contenu de la page ______________________________-->
-
-
-
-
-    <table class="table textcolor">
-        <tr>
-            <?php
-            // Affichage des entêtes du tableau (-1 pour enlever le champ statut)
-
-            for ($i=0; $i<$resultats->columnCount(); $i++)
-            {
-                $entete = $resultats->getColumnMeta($i);
-                echo "<th>" . $entete['name'] . "</th>";
-            }
-            ?>
-        </tr>
-        <?php foreach ($resultats as $resultat) :?>
-            <!-- Affichage des résultats de la BD -->
-            <tr>
-                <td><?=$resultat['login'];?></td>
-                <td><?=$resultat['passwd'];?></td>
-            </tr>
-        <?php endforeach;?>
-    </table>
-    </header>
-    </article>
-    <hr/>
-
-
-
-
 
 <!--____________________________________________________________________________-->
 
@@ -52,7 +23,7 @@ if (isset($_SESSION)){
               <h5 class="text-error">Erreur de mot de passe</h5>
             <?php endif ?>
 		        <p>
-            <form class="form" method="POST" action="..\controleur\controleur.php">
+            <form class="form" method="POST" action="index.php?action=vue_loginRes">
               <table class="table">
                 <tr>
                   <td>Login : </td><td><input type="text" placeholder="Entrez votre login" name="fLogin" value="<?= @$_POST['fLogin']; // pour éviter à l'utilisateur de retaper son login ?>"><td>

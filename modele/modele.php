@@ -42,19 +42,28 @@ function getSnows()
   return $resultats;
 }
 
-//Fonction de gestion du login
+function getLogin($LoginForm, $PasswordForm){
 
-function getLogin(){
-
-    $chklogin = $_POST['fLogin'];
+    //Variable pour définir la valeur de l'identification; 1=identifié, 0= non identifié
 
     // Connexion à la BD et au serveur
     $connexion = getBD();
 
     // Cr�ation de la string pour la requ�te
-    $requete = "SELECT login, passwd FROM tblclients ORDER BY login WHERE login ="..";";
+    $requeteF = "SELECT login, passwd FROM tblclients WHERE login = '".$LoginForm."' AND '".$PasswordForm."';";
     // Exécution de la requête
-    $resultats = $connexion->query($requete);
-    return $resultats;
+    $resultatsF = $connexion->query($requeteF);
+
+    foreach ($resultatsF as $resultat){
+        if ($LoginForm == $resultat['login'] && $PasswordForm == $resultat['passwd']){ //si les données dans le formulaire correspondent à ce qu iest dans la BD alors
+
+            @$_SESSION[$LoginForm]; //créée la session correspondante dans le cas ou les infos sont correctes.
+
+        }else{
+            session_destroy();      //Sinon, une eventuelle session est détruite et une erreur est retournée
+
+        }
+    }
 
 }
+

@@ -24,8 +24,11 @@ try
           snows();
         break;
       case 'vue_login' :
-          login();
+          loginForm();
         break;
+    case 'vue_loginRes' :
+        loginRes();
+            break;
       default :
         throw new Exception("Action non valide");
     }
