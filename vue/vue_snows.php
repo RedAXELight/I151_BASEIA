@@ -8,7 +8,9 @@
  * Date : 14.02.2018
  */
 
+session_start();
 ob_start();
+
 $titre = 'Rent A Snow - Nos snows';
 
 ?>

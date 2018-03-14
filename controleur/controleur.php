@@ -9,6 +9,7 @@
  */
 
 
+
 require "modele/modele.php";
 
 // Affichage de la page de l'accueil
@@ -34,13 +35,23 @@ function snows()
   require 'vue/vue_snows.php';
 }
 
-function loginRes() //pour afficher la vue séléctionnée dans le menu
-{
-  require 'vue/vue_loginRes.php';
-}
+
 
 function loginForm() //Fonction pour le login du formulaire
 {
-    require 'vue/vue_login.php';
-
+    if (isset ($_POST['fLogin']) && isset ($_POST['fPass']))
+    {
+        $resultats = getLogin($_POST);
+        require "vue/vue_login.php";
+    }
+    else
+    {
+        // détruit la session de la personne connectée après appuyé sur Logout
+        if (isset($_SESSION['login'])) {
+            session_destroy();
+            require "vue/vue_accueil.php";
+        }
+        else
+            require "vue/vue_login.php";
+    }
 }

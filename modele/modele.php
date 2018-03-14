@@ -42,28 +42,25 @@ function getSnows()
   return $resultats;
 }
 
-function getLogin($LoginForm, $PasswordForm){
 
-    //Variable pour définir la valeur de l'identification; 1=identifié, 0= non identifié
-
-    // Connexion à la BD et au serveur
+//compare les données envoyées par le formulaire avec celle de la bd
+function getLogin($post)
+{
+    // connexion à la BD snows
     $connexion = getBD();
 
-    // Cr�ation de la string pour la requ�te
-    $requeteF = "SELECT login, passwd FROM tblclients WHERE login = '".$LoginForm."' AND '".$PasswordForm."';";
-    // Exécution de la requête
-    $resultatsF = $connexion->query($requeteF);
-
-    foreach ($resultatsF as $resultat){
-        if ($LoginForm == $resultat['login'] && $PasswordForm == $resultat['passwd']){ //si les données dans le formulaire correspondent à ce qu iest dans la BD alors
-
-            @$_SESSION[$LoginForm]; //créée la session correspondante dans le cas ou les infos sont correctes.
-
-        }else{
-            session_destroy();      //Sinon, une eventuelle session est détruite et une erreur est retournée
-
-        }
+    // Requête pour sélectionner la personne loguée
+    if ($post['fUserType'] == 'Client')
+    {
+        $requete = "SELECT * FROM tblclients WHERE login= '".$post['fLogin']."' AND passwd='".$post['fPass']."';";
+    }
+    else
+    {
+        $requete = "SELECT * FROM tblvendeurs WHERE login= '".$post['fLogin']."' AND passwd='".$post['fPass']."';";
     }
 
+    // Exécution de la requête et renvoi des résultats
+    $resultats = $connexion->query($requete);
+    return $resultats;
 }
 

@@ -6,7 +6,6 @@
  * Time: 09:16
  */
 
-  session_start();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -78,11 +77,14 @@
                 <li><a href="index.php">Home</a></li>
                 <?php endif; ?>
 
-                <?php if(@$_GET['action']=="vue_login") :?>
-                <li class="active"><a href="index.php?action=vue_login">Login</a></li>
-                <?php else : ?>
-                <li><a href="index.php?action=vue_login">Login</a></li>
-                <?php endif; ?>
+                  <li <?php if(@$_GET['action']== "vue_login") echo 'class="active"'; ?>>
+                      <a href="index.php?action=vue_login">
+                      <?php if (isset($_SESSION['login'])) ://si la session login est active, affiche "logout" dans le menu ?>
+                          Logout</a>
+                      <?php else : ?>
+                          Login</a>
+                      <?php endif ?>
+                  </li>
 
                 <?php if(@$_GET['action']=="vue_snows") :?>
                 <li class="active"><a href="index.php?action=vue_snows">Nos snows</a></li>
@@ -90,7 +92,7 @@
                 <li><a href="index.php?action=vue_snows">Nos snows</a></li>
                 <?php endif; ?>
 
-                </li>
+
                 <li><a href="contact.php">Contact</a></li>
               </ul>
             </div>
