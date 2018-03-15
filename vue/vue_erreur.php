@@ -6,7 +6,6 @@
  * Time: 08:45
  */
 
-session_start();
 
 // Tampon de flux stocké en mémoire
 ob_start();

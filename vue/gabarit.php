@@ -93,6 +93,17 @@
                 <?php endif; ?>
 
 
+                <?php if (isset($_SESSION['typeUser']) && $_SESSION['typeUser'] == "Vendeur") ://si une session vendeur est active, affiche "Ajouter un snow" dans le menu ?>
+
+                    <?php if((@$_GET['action']=="vue_ajouter")||(!isset($_GET['action']))) :?>
+                        <li class="active"><a href="index.php?action=vue_ajouter">Ajouter un snow</a></li>
+                    <?php else : ?>
+                        <li><a href="index.php?action=vue_ajouter">Ajouter un snow</a></li>
+                    <?php endif; ?>
+
+                <?php endif; ?>
+
+
                 <li><a href="contact.php">Contact</a></li>
               </ul>
             </div>

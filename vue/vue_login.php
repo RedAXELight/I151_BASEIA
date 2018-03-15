@@ -8,9 +8,7 @@
 
 ob_start();
 $titre = "login";
-if (isset($_SESSION)){
-    session_destroy();
-}
+
 ?>
 
 <!-- ________________________ Gestion de la connection et du type d'utilisateur connecté ______________________________-->
@@ -45,7 +43,7 @@ else
 {
     if (isset($_SESSION['login']))
     {
-        session_destroy();
+
         header ("location:index.php");
     }
     ?>
@@ -80,7 +78,6 @@ else
         </form>
 
     <?php } ?>
-</article>
 <hr/>
 
 <?php

@@ -27,9 +27,11 @@ try
       case 'vue_login' :
           loginForm();
         break;
-    case 'vue_loginRes' :
-        loginRes();
-            break;
+
+      case 'vue_ajouter' :
+          ajoutSnow();
+        break;
+
       default :
         throw new Exception("Action non valide");
     }

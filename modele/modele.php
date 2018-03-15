@@ -64,3 +64,15 @@ function getLogin($post)
     return $resultats;
 }
 
+function AddSnow($post) //Fonction pour l'ajout d'un snow dans la bd
+{
+    // connexion à la BD snows
+    $connexion = getBD();
+
+
+    $requete = "INSERT INTO tblsurfs (idsurf, marque, boots, type, disponibilite, statut) VALUES ('".$post['fID']."','".$post['fMarque']."','".$post['fBoots']."','".$post['fType']."','".$post['fDispo']."','') ;";
+
+    $resultats = $connexion->query($requete);
+    return $resultats;
+}
+

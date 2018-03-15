@@ -55,3 +55,18 @@ function loginForm() //Fonction pour le login du formulaire
             require "vue/vue_login.php";
     }
 }
+
+// Affichage de la page d'ajout de snows
+function ajoutSnow()
+{
+    if (isset ($_POST['fID']) && isset ($_POST['fMarque']) && isset ($_POST['fBoots']) && isset ($_POST['fType']) && isset ($_POST['fDispo ']))
+    {
+        $resultats = AddSnow($_POST);
+        require "vue/vue_ajouter.php";
+    }
+    else
+    {
+        require "vue/vue_ajouter.php";
+    }
+
+}
