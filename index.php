@@ -32,6 +32,15 @@ try
           ajoutSnow();
         break;
 
+      case 'vue_upd' :
+          updSnow();
+        break;
+
+      case 'delSnow' :
+         delSnow($_GET['id']);
+        break;
+
+
       default :
         throw new Exception("Action non valide");
     }

@@ -21,7 +21,7 @@ $titre = 'Rent A Snow - Ajouter un snow';
                 <div class="span12" id="divMain">
                     <h1>Ajout de snow</h1>
                     <?php if (isset($_POST['erreur'])) : ?>
-                        <h5 class="text-error">Erreur de mot de passe</h5>
+                        <h5 class="text-error">Erreur champs</h5>
                     <?php endif ?>
                     <p>
                     <form class="form" method="POST" action="index.php?action=vue_ajouter">
@@ -46,12 +46,12 @@ $titre = 'Rent A Snow - Ajouter un snow';
                             <tr>
                                 <td>Boots :</td>
                                 <td><input type="text" placeholder="Entrez les boots compatibles" name="fBoots"
-                                           value="<?= @$_POST['fID']; ?>"></td>
+                                           value="<?= @$_POST['fBoots']; ?>"></td>
                             </tr>
                             <tr>
                                 <td>Type :</td>
                                 <td><input type="text" placeholder="Entrez le type de snow" name="fType"
-                                           value="<?= @$_POST['fID']; ?>"></td>
+                                           value="<?= @$_POST['fType']; ?>"></td>
                             </tr>
                             <tr>
                                 <td>Disponibilité :</td>

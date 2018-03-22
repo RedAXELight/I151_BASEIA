@@ -36,7 +36,7 @@ function getSnows()
   $connexion = getBD();
 
   // Cr�ation de la string pour la requ�te
-  $requete = "SELECT * FROM tblsurfs ORDER BY disponibilite;";
+  $requete = "SELECT * FROM tblsurfs WHERE active = 1 ORDER BY disponibilite;";
   // Exécution de la requête
   $resultats = $connexion->query($requete);
   return $resultats;
@@ -70,7 +70,20 @@ function AddSnow($post) //Fonction pour l'ajout d'un snow dans la bd
     $connexion = getBD();
 
 
-    $requete = "INSERT INTO tblsurfs (idsurf, marque, boots, type, disponibilite, statut) VALUES ('".$post['fID']."','".$post['fMarque']."','".$post['fBoots']."','".$post['fType']."','".$post['fDispo']."','') ;";
+    $requete = "INSERT INTO tblsurfs (idsurf, marque, boots, type, disponibilite, statut, active) VALUES ('".$post['fID']."','".$post['fMarque']."','".$post['fBoots']."','".$post['fType']."','".$post['fDispo']."', '', '') ;";
+
+    $resultats = $connexion->query($requete);
+    return $resultats;
+}
+
+
+//fonction de "suppression" d'un snow
+function DeleteSnow($idcible)
+{
+    //connexion à la bd
+    $connexion = getBD();
+
+    $requete = "UPDATE tblsurfs SET active = 0 WHERE idsurf = '".$idcible."';";
 
     $resultats = $connexion->query($requete);
     return $resultats;

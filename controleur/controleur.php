@@ -59,7 +59,7 @@ function loginForm() //Fonction pour le login du formulaire
 // Affichage de la page d'ajout de snows
 function ajoutSnow()
 {
-    if (isset ($_POST['fID']) && isset ($_POST['fMarque']) && isset ($_POST['fBoots']) && isset ($_POST['fType']) && isset ($_POST['fDispo ']))
+    if (isset ($_POST['fID']) && isset ($_POST['fMarque']) && isset ($_POST['fBoots']) && isset ($_POST['fType']) && isset ($_POST['fDispo']))
     {
         $resultats = AddSnow($_POST);
         require "vue/vue_ajouter.php";
@@ -69,4 +69,20 @@ function ajoutSnow()
         require "vue/vue_ajouter.php";
     }
 
+}
+
+//Affichage de la page de modif
+function updSnow()
+{
+    require 'vue/vue_upd.php';
+}
+
+
+//Affichage de la page de modif
+function delSnow($id)
+{
+    $idCible = $id;
+    DeleteSnow($idCible);
+    $resultats=getSnows(); // pour récupérer les données des snows dans la BD
+    require 'vue/vue_snows.php';
 }
