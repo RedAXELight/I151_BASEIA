@@ -89,3 +89,27 @@ function DeleteSnow($idcible)
     return $resultats;
 }
 
+//Genre euuuuh... retire toutes les informations d'un seul snow
+function GetSnow($idcible)
+{
+    //connexion à la bd
+    $connexion = getBD();
+
+    $requete = "SELECT * FROM tblsurfs WHERE idsurf = '".$idcible."';";
+
+    $resultats = $connexion->query($requete);
+    return $resultats;
+}
+
+//fonction de modification d'un snow
+function UpdateSnow($ValModif)
+{
+    //connexion à la bd
+    $connexion = getBD();
+
+    $requete = "UPDATE tblsurfs SET marque = '".$ValModif['fMarque']."', boots = '".$ValModif['fBoots']."', type = '".$ValModif['fType']."', disponibilite = '".$ValModif['fDispo']."' WHERE idsurf = '".$ValModif['fId']."' ;";
+
+    $resultats = $connexion->query($requete);
+    return $resultats;
+}
+

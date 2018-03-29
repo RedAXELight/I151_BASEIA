@@ -43,7 +43,7 @@ $titre = 'Rent A Snow - Nos snows';
           <td><?php
               if (isset($_SESSION['typeUser']) && $_SESSION['typeUser'] == "Vendeur")
               {
-                  echo "<a href='index.php?action=vue_upd'><img src='../contenu/images/modif.png'></a> - <a href='index.php?action=delSnow&id=".$resultat['idsurf']."'><img src='../contenu/images/delete.jpg'></a>";
+                  echo "<a href='index.php?action=vue_upd&id=".$resultat['idsurf']."'><img src='../contenu/images/modif.png'></a> - <a href='index.php?action=delSnow&id=".$resultat['idsurf']."'><img src='../contenu/images/delete.jpg'></a>";
               }?>
           </td>
         </tr>

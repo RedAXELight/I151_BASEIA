@@ -13,12 +13,80 @@ $titre = 'Rent A Snow - Modifier snow';
 
 ?>
 
+    <div class="contentArea">
+        <div class="divPanel notop page-content">
+            <div class="row-fluid">
+
+                <!-- ________________________ Contenu de la page ______________________________-->
+
+                <div class="span12" id="divMain">
 
 
+                    <table>
+                        <?php foreach ($resultats as $resultat) : ?>
+                            <!--Variables pour récuperer le contenu du foreach-->
+                            <?php
+                            $Id = $resultat['idsurf'];
+                            $Marque = $resultat['marque'];
+                            $Boots = $resultat['boots'];
+                            $Type = $resultat['type'];
+                            $Dispo = $resultat['disponibilite'];
+                            ?>
 
 
+                        <?php endforeach; ?>
+                    </table>
+
+
+                    <h1>Modifier le snow <?= @$_GET['id'] ?></h1>
+                    <?php if (isset($_POST['erreur'])) : ?>
+                        <h5 class="text-error">Erreur champs</h5>
+                    <?php endif ?>
+                    <p>
+                    <form class="form" method="POST" action="index.php?action=updSnow">
+                        <table class="table">
+
+                            <input type="text" placeholder="Entrez la marque" name="fId" class="hidden"
+                                   value="<?= $Id; ?>">
+
+
+                            <tr>
+                                <td>Marque :</td>
+                                <td>
+                                    <input type="text" placeholder="Entrez la marque" name="fMarque"
+                                           value="<?= $Marque; ?>">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Boots :</td>
+                                <td><input type="text" placeholder="Entrez les boots compatibles" name="fBoots"
+                                           value="<?= $Boots; ?>"></td>
+                            </tr>
+                            <tr>
+                                <td>Type :</td>
+                                <td><input type="text" placeholder="Entrez le type de snow" name="fType"
+                                           value="<?= $Type; ?>"></td>
+                            </tr>
+                            <tr>
+                                <td>Disponibilité :</td>
+                                <td><input type="integer" placeholder="Entrez la disponibilité en magasin" name="fDispo"
+                                           value="<?= $Dispo; ?>"></td>
+                            </tr>
+
+                            <tr>
+                                <td><input class="btn" type="submit" value="Ajouter"/></td>
+                            </tr>
+                        </table>
+                    </form>
+                    </p>
+                </div>
+            </div>
+            <div id="footerOuterSeparator"></div>
+        </div>
+    </div>
 
 
 <?php
-  $contenu=ob_get_clean();
-  require "gabarit.php";
+$contenu = ob_get_clean();
+require "gabarit.php";

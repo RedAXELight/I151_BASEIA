@@ -72,11 +72,21 @@ function ajoutSnow()
 }
 
 //Affichage de la page de modif
-function updSnow()
+function updSnow_get($id)
 {
+    $resultats = GetSnow($id);
+
     require 'vue/vue_upd.php';
 }
 
+//Affichage de la page de modif
+function updSnow($ValModif)
+{
+    UpdateSnow($ValModif);
+
+    $resultats=getSnows(); // pour récupérer les données des snows dans la BD
+    require 'vue/vue_snows.php';
+}
 
 //Affichage de la page de modif
 function delSnow($id)
