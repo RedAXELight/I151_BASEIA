@@ -71,7 +71,7 @@ function ajoutSnow()
 
 }
 
-//Affichage de la page de modif
+//Recherche des données de la page de modif
 function updSnow_get($id)
 {
     $resultats = GetSnow($id);
@@ -88,7 +88,7 @@ function updSnow($ValModif)
     require 'vue/vue_snows.php';
 }
 
-//Affichage de la page de modif
+//Suppression des snows
 function delSnow($id)
 {
     $idCible = $id;

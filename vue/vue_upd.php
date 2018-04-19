@@ -23,9 +23,10 @@ $titre = 'Rent A Snow - Modifier snow';
 
 
                     <table>
-                        <?php foreach ($resultats as $resultat) : ?>
+                        <?php foreach ($resultats as $resultat) : ?><!--Ici on utilise la variable $resultats retournée dans la fonction GetSnow, cela permet de faire sortir les elements obtenus avec la requete afin de les utiliser ici-->
                             <!--Variables pour récuperer le contenu du foreach-->
                             <?php
+                            //Les différents elements sont donc "etalés" ici et attribués à un nom qui permet d'afficher dans les champs du formulaire le contenus du surf choisi
                             $Id = $resultat['idsurf'];
                             $Marque = $resultat['marque'];
                             $Boots = $resultat['boots'];

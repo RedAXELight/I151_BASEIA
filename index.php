@@ -31,11 +31,11 @@ try {
                 break;
 
             case 'vue_upd' :
-                updSnow_get($_GET['id']);
+                updSnow_get($_GET['id']); //cette partie là va chercher le snow
                 break;
 
             case 'updSnow' :
-                updSnow($_POST);
+                updSnow($_POST); //cette partie là envoie un tableau POST avec les modification du formulaire
                 break;
 
             case 'delSnow' :

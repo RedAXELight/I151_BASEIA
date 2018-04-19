@@ -70,9 +70,9 @@ function AddSnow($post) //Fonction pour l'ajout d'un snow dans la bd
     $connexion = getBD();
 
 
-    $requete = "INSERT INTO tblsurfs (idsurf, marque, boots, type, disponibilite, statut, active) VALUES ('".$post['fID']."','".$post['fMarque']."','".$post['fBoots']."','".$post['fType']."','".$post['fDispo']."', '', '') ;";
+    $requete = "INSERT INTO tblsurfs (idsurf, marque, boots, type, disponibilite, statut, active) VALUES ('".$post['fID']."','".$post['fMarque']."','".$post['fBoots']."','".$post['fType']."','".$post['fDispo']."', '', '1') ;";
 
-    $resultats = $connexion->query($requete);
+    $resultats = $connexion->query($requete); //Permet de retourner le résultat de la requête (Si par exemple on voulait directement afficher le snow entré cela pourrait être utile)
     return $resultats;
 }
 
@@ -89,7 +89,7 @@ function DeleteSnow($idcible)
     return $resultats;
 }
 
-//Genre euuuuh... retire toutes les informations d'un seul snow
+//Va chercher les infos d'un seul snow pour la modification
 function GetSnow($idcible)
 {
     //connexion à la bd
@@ -98,7 +98,7 @@ function GetSnow($idcible)
     $requete = "SELECT * FROM tblsurfs WHERE idsurf = '".$idcible."';";
 
     $resultats = $connexion->query($requete);
-    return $resultats;
+    return $resultats; //dans ce cas de figure il est utile de retourner la variable resultat
 }
 
 //fonction de modification d'un snow
